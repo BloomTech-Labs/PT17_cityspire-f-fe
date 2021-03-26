@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { mapboxConfig } from '../../utils/mapboxConfig';
 import ReactMapGL from 'react-map-gl';
+
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
 mapboxgl.workerClass = 'worker-loader'.default;
+
+
+
 
 const MapboxGLMap = ({ lat, long }) => {
   const [viewport, setViewport] = useState({
