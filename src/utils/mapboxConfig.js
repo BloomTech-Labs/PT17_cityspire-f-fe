@@ -1,5 +1,6 @@
 const mapboxConfig = {
-  key: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
+  key:
+    'pk.eyJ1IjoiZmF0YWFoMTIzIiwiYSI6ImNrbWI2a3gzYTF3ZWgycm9jYTAyMTF4MTMifQ.k89c7AMyffqD5HMiNY0FsA',
 };
 
 export { mapboxConfig };
