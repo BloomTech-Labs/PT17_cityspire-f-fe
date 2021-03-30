@@ -33,13 +33,14 @@ const App = () => {
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
 
-        {/* any of the routes you need secured should be registered as SecureRoutes */}
-        <SecureRoute
+        {/* Removed the SecurerRoute component so that the HomePage loads first -JG */}
+        <Route
           path="/"
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
 
+        {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute path="/profile/:id/dashboard" exact>
           <UserDashboardPage id={id} />
         </SecureRoute>

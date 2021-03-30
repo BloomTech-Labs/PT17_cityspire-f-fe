@@ -26,7 +26,7 @@ const HeaderStyle = {
 };
 
 const Header = () => {
-  const { authService } = useOktaAuth();
+  const { authService, authState } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
@@ -97,7 +97,13 @@ const Header = () => {
               />
             </a>
             <Divider type="vertical" />
-            <Button onClick={() => authService.logout()}>Logout</Button>
+            {authState.isAuthenticated ? (
+              <Button onClick={() => authService.logout()} href="/">
+                Log Out
+              </Button>
+            ) : (
+              <Button onClick={() => push('/login')}>Login</Button>
+            )}
           </Space>
         </Row>
       </Col>
