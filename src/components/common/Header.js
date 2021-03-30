@@ -62,8 +62,36 @@ const Header = () => {
       <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
         Pinned Cities
       </Menu.Item>
+      <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
+        Favorites
+      </Menu.Item>
     </Menu>
   );
+
+  // BEG: sdh
+  const dropdown = (
+    <Menu>
+      <Menu.Item key="0">
+        <a rel="noopener noreferrer" href="/login">
+          Login
+        </a>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.lambdaschool.com"
+        >
+          Create Account
+        </a>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="3" onClick={() => authService.logout()}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
+  // END: sdh
 
   return (
     <Row style={HeaderStyle}>
@@ -86,7 +114,7 @@ const Header = () => {
                 onClick={e => e.preventDefault()}
                 style={{ cursor: 'pointer' }}
               >
-                <Avatar size="small" icon={<UserOutlined />} />
+                <Avatar size="large" icon={<UserOutlined />} />
                 {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
               </Space>
             </Dropdown>
@@ -97,7 +125,17 @@ const Header = () => {
               />
             </a>
             <Divider type="vertical" />
-            <Button onClick={() => authService.logout()}>Logout</Button>
+            {/* BEG: sdh */}
+            <Dropdown overlay={dropdown}>
+              <a
+                className="ant-dropdown-link"
+                onClick={e => e.preventDefault()}
+              >
+                login <DownOutlined />
+              </a>
+            </Dropdown>
+            {/* <Button onClick={() => authService.logout()}>Logout</Button> */}
+            {/* END: sdh */}
           </Space>
         </Row>
       </Col>
