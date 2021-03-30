@@ -42,7 +42,6 @@ function HomeContainer() {
           <Spin tip="Loading..." size="large"></Spin>
         </div>
       )}
-      {/* {!authState.isAuthenticated && !userInfo && <RenderHomePage />} */}
       <RenderHomePage />
     </>
   );

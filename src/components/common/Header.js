@@ -97,7 +97,6 @@ const Header = () => {
               />
             </a>
             <Divider type="vertical" />
-            {/* <Button onClick={() => authService.logout()}>Logout</Button> */}
             {authState.isAuthenticated ? (
               <Button onClick={() => authService.logout()} href="/">
                 Log Out
