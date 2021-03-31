@@ -26,7 +26,7 @@ const HeaderStyle = {
 };
 
 const Header = () => {
-  const { authService } = useOktaAuth();
+  const { authService, authState } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
@@ -125,6 +125,7 @@ const Header = () => {
               />
             </a>
             <Divider type="vertical" />
+
             {/* BEG: sdh */}
             <Dropdown overlay={dropdown}>
               <a
@@ -133,9 +134,7 @@ const Header = () => {
               >
                 login <DownOutlined />
               </a>
-            </Dropdown>
-            {/* <Button onClick={() => authService.logout()}>Logout</Button> */}
-            {/* END: sdh */}
+           
           </Space>
         </Row>
       </Col>
