@@ -11,10 +11,16 @@ import {
   Avatar,
   Button,
   Image,
+  Input,
   Space,
   Divider,
 } from 'antd';
-import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import {
+  UserOutlined,
+  DownOutlined,
+  SearchOutlined,
+  AudioOutlined,
+} from '@ant-design/icons';
 
 const HeaderStyle = {
   display: 'flex',
@@ -62,8 +68,36 @@ const Header = () => {
       <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
         Pinned Cities
       </Menu.Item>
+      <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
+        Favorites
+      </Menu.Item>
     </Menu>
   );
+
+  // BEG: sdh
+  const dropdown = (
+    <Menu>
+      <Menu.Item key="0">
+        <a rel="noopener noreferrer" href="/login">
+          Login
+        </a>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.lambdaschool.com"
+        >
+          Create Account
+        </a>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="3" onClick={() => authService.logout()}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
+  // END: sdh
 
   return (
     <Row style={HeaderStyle}>
@@ -86,10 +120,11 @@ const Header = () => {
                 onClick={e => e.preventDefault()}
                 style={{ cursor: 'pointer' }}
               >
-                <Avatar size="small" icon={<UserOutlined />} />
+                <Avatar size="large" icon={<UserOutlined />} />
                 {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
               </Space>
             </Dropdown>
+
             <Divider type="vertical" />
             <a href="/" style={{ color: 'grey' }}>
               <SearchOutlined
@@ -97,13 +132,16 @@ const Header = () => {
               />
             </a>
             <Divider type="vertical" />
-            {authState.isAuthenticated ? (
-              <Button onClick={() => authService.logout()} href="/">
-                Log Out
-              </Button>
-            ) : (
-              <Button onClick={() => push('/login')}>Login</Button>
-            )}
+            {/* BEG: sdh */}
+            <Dropdown overlay={dropdown}>
+              <a
+                className="ant-dropdown-link"
+                onClick={e => e.preventDefault()}
+              >
+                login <DownOutlined />
+              </a>
+            </Dropdown>
+            {/* END: sdh */}
           </Space>
         </Row>
       </Col>
