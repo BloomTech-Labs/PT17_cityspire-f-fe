@@ -11,10 +11,16 @@ import {
   Avatar,
   Button,
   Image,
+  Input,
   Space,
   Divider,
 } from 'antd';
-import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import {
+  UserOutlined,
+  DownOutlined,
+  SearchOutlined,
+  AudioOutlined,
+} from '@ant-design/icons';
 
 const HeaderStyle = {
   display: 'flex',
@@ -24,6 +30,22 @@ const HeaderStyle = {
   borderBottom: 'solid thin #eee',
   backgroundColor: 'white',
 };
+
+// BEGIN: SDH //
+const { Search } = Input;
+
+const suffix = (
+  <AudioOutlined
+    style={{
+      fontSize: 16,
+      color: '#1890ff',
+    }}
+  />
+);
+
+const onSearch = value => console.log(value);
+
+// END:  SDH
 
 const Header = () => {
   const { authService, authState } = useOktaAuth();
@@ -134,7 +156,6 @@ const Header = () => {
                 login <DownOutlined />
               </a>
             </Dropdown>
-            {/* <Button onClick={() => authService.logout()}>Logout</Button> */}
             {/* END: sdh */}
           </Space>
         </Row>

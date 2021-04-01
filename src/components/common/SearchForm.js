@@ -60,7 +60,7 @@ const SearchForm = ({ fetchCityData }) => {
             value={searchValue.city}
             onChange={handleChange}
           />
-          <p
+          {/* <p
             style={{
               fontSize: '2.5rem',
               fontFamily: 'Hachi Maru Pop, cursive',
@@ -74,7 +74,7 @@ const SearchForm = ({ fetchCityData }) => {
             }}
           >
             Search Your Desires
-          </p>
+          </p> */}
         </div>
       </Col>
     </Row>
