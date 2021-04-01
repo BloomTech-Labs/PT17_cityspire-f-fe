@@ -132,10 +132,6 @@ const Header = () => {
               />
             </a>
             <Divider type="vertical" />
-<<<<<<< HEAD
-=======
-
->>>>>>> b051505cbad7793c3244fd299d591d7454445036
             {/* BEG: sdh */}
             <Dropdown overlay={dropdown}>
               <a
@@ -144,12 +140,8 @@ const Header = () => {
               >
                 login <DownOutlined />
               </a>
-<<<<<<< HEAD
             </Dropdown>
             {/* END: sdh */}
-=======
-           
->>>>>>> b051505cbad7793c3244fd299d591d7454445036
           </Space>
         </Row>
       </Col>
