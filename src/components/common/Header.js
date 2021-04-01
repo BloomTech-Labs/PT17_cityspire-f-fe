@@ -31,22 +31,6 @@ const HeaderStyle = {
   backgroundColor: 'white',
 };
 
-// BEGIN: SDH //
-const { Search } = Input;
-
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1890ff',
-    }}
-  />
-);
-
-const onSearch = value => console.log(value);
-
-// END:  SDH
-
 const Header = () => {
   const { authService, authState } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
@@ -140,6 +124,7 @@ const Header = () => {
                 {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
               </Space>
             </Dropdown>
+
             <Divider type="vertical" />
             <a href="/" style={{ color: 'grey' }}>
               <SearchOutlined
