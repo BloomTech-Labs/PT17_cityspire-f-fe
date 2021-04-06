@@ -9,8 +9,8 @@ import city4 from '../../../assets/imgs/city4.png';
 import city5 from '../../../assets/imgs/city5.png';
 import losAngeles1 from '../../../assets/imgs/LosAngeles1.jpg';
 import carousel2 from '../../../assets/imgs/CarouselCity2.jpg';
-import chicago3 from '../../../assets/imgs/Chicago3.jpg';
 import losangeles3 from '../../../assets/imgs/LosAngeles3.jpg';
+import chicago3 from '../../../assets/imgs/Chicago3.jpg';
 import '../Home/Home.css';
 
 import { Layout, Image, Space, Carousel } from 'antd';
@@ -27,8 +27,6 @@ const contentStyle = {
   background: '#f0f2f5',
   margin: '2%',
 };
-
-// Carousel styles - lines 33-69 - JG
 
 const carouselStyle = {
   height: '520px',
@@ -62,16 +60,17 @@ const imgText = {
 
 const fontStyle = {
   color: 'white',
-  fontFamily: 'Lato, sans-serif',
-  fontSize: '50px',
-  webkitTextStroke: '1px black',
+  fonFamily: 'Lato, sans-serif',
+  fontSize: '70px',
+  webkitTextStroke: '.5px black',
+  textShadow: '2px 2px black',
 };
 
 function RenderHomePage() {
   return (
     <Layout className="layout">
       <Header />
-      // Picture carousel - lines 82-111 - JG
+
       <Carousel autoplay autoplaySpeed={5000}>
         <div style={carouselStyle}>
           <div style={imgContainer}>
@@ -116,6 +115,7 @@ function RenderHomePage() {
           </div>
         </div>
       </Carousel>
+
       <Space
         size="large"
         align="center"
@@ -128,11 +128,13 @@ function RenderHomePage() {
       >
         {' '}
       </Space>
+
       <Content
         style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
       >
         <SearchForm />
       </Content>
+
       <Space size="large" align="center">
         <p
           style={{
@@ -157,6 +159,7 @@ function RenderHomePage() {
           }}
         />{' '}
       </Space>
+
       <a
         href="https://cityspire-states.netlify.app/"
         style={{
@@ -171,6 +174,7 @@ function RenderHomePage() {
       >
         Learn more about US States
       </a>
+
       <Carousel
         autoplay
         style={{
@@ -204,6 +208,7 @@ function RenderHomePage() {
           </h3>
         </div>
       </Carousel>
+
       <Image
         preview={false}
         src={citylife}
