@@ -127,9 +127,7 @@ const Header = () => {
 
             <Divider type="vertical" />
             <a href="/" style={{ color: 'grey' }}>
-              <SearchOutlined
-                style={{ cursor: 'pointer', fontSize: '1.15rem' }}
-              />
+              Map View
             </a>
             <Divider type="vertical" />
             {/* BEG: sdh */}
