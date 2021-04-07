@@ -14,9 +14,9 @@ const ColStyle = {
 };
 
 const SearchStyle = {
-  width: '55vw',
-  minWidth: '24rem',
-  maxWidth: '80rem',
+  width: '27vw',
+  minWidth: '20rem',
+  maxWidth: '60rem',
   padding: '1rem',
 };
 
@@ -55,26 +55,11 @@ const SearchForm = ({ fetchCityData }) => {
             placeholder="Ex. New York, NY"
             allowClear
             onSearch={() => onSubmit()}
-            size="large"
+            size="medium"
             style={SearchStyle}
             value={searchValue.city}
             onChange={handleChange}
           />
-          <p
-            style={{
-              fontSize: '2.5rem',
-              fontFamily: 'Hachi Maru Pop, cursive',
-              fontStyle: 'italic',
-              marginTop: '-8%',
-              backgroundColor: '#5946B2',
-              paddingTop: '2rem',
-              color: 'white',
-              border: '2px outset lightgrey',
-              textShadow: '1px 1px 10px #FFCC33',
-            }}
-          >
-            Search Your Desires
-          </p>
         </div>
       </Col>
     </Row>

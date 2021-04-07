@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
-
+import { SearchForm } from '../common';
 import cityspireLogo from '../../assets/imgs/cityspireLogo.png';
 import {
   Row,
@@ -11,11 +11,18 @@ import {
   Avatar,
   Button,
   Image,
+  Input,
+  Layout,
   Space,
   Divider,
 } from 'antd';
-import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
-
+import {
+  UserOutlined,
+  DownOutlined,
+  SearchOutlined,
+  AudioOutlined,
+} from '@ant-design/icons';
+const { Content } = Layout;
 const HeaderStyle = {
   display: 'flex',
   justifyContent: 'space-between',
@@ -24,18 +31,14 @@ const HeaderStyle = {
   borderBottom: 'solid thin #eee',
   backgroundColor: 'white',
 };
-
 const Header = () => {
   const { authService, authState } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
-
   const { push } = useHistory();
-
   useEffect(() => {
     let isSubscribed = true;
-
     memoAuthService
       .getUser()
       .then(info => {
@@ -52,11 +55,9 @@ const Header = () => {
       });
     return () => (isSubscribed = false);
   }, [memoAuthService]);
-
   const handleOnClick = id => {
     push(`/profile/${id}/dashboard`);
   };
-
   const menu = (
     <Menu>
       <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
@@ -64,7 +65,30 @@ const Header = () => {
       </Menu.Item>
     </Menu>
   );
-
+  // BEG: sdh
+  const dropdown = (
+    <Menu>
+      <Menu.Item key="0">
+        <a rel="noopener noreferrer" href="/login">
+          Login
+        </a>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.lambdaschool.com"
+        >
+          Create Account
+        </a>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="3" onClick={() => authService.logout()}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
+  // END: sdh
   return (
     <Row style={HeaderStyle}>
       <Col>
@@ -76,7 +100,13 @@ const Header = () => {
           />
         </a>
       </Col>
-
+      {/* STARTED: sdh */}
+      <Content
+        style={{ height: '15px', marginTop: '-25rem', marginBottom: '18rem' }}
+      >
+        <SearchForm />
+      </Content>
+      {/* END: sdh */}
       <Col>
         <Row>
           <Space size="large">
@@ -86,7 +116,7 @@ const Header = () => {
                 onClick={e => e.preventDefault()}
                 style={{ cursor: 'pointer' }}
               >
-                <Avatar size="small" icon={<UserOutlined />} />
+                <Avatar size="large" icon={<UserOutlined />} />
                 {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
               </Space>
             </Dropdown>
@@ -97,18 +127,20 @@ const Header = () => {
               />
             </a>
             <Divider type="vertical" />
-            {authState.isAuthenticated ? (
-              <Button onClick={() => authService.logout()} href="/">
-                Log Out
-              </Button>
-            ) : (
-              <Button onClick={() => push('/login')}>Login</Button>
-            )}
+            {/* BEG: sdh */}
+            <Dropdown overlay={dropdown}>
+              <a
+                className="ant-dropdown-link"
+                onClick={e => e.preventDefault()}
+              >
+                login <DownOutlined />
+              </a>
+            </Dropdown>
+            {/* END: sdh */}
           </Space>
         </Row>
       </Col>
     </Row>
   );
 };
-
 export default Header;

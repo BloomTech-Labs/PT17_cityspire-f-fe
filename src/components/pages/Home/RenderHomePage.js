@@ -72,11 +72,11 @@ function RenderHomePage() {
           CitySpire
         </strong>
       </h1>
-      <Content
+      {/* <Content
         style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
       >
         <SearchForm />
-      </Content>
+      </Content> */}
 
       <Space size="large" align="center">
         <p
