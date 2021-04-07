@@ -131,7 +131,6 @@ function RenderHomePage() {
       >
         <SearchForm />
       </Content>{' '}
-      */}
       <Space size="large" align="center">
         <p
           style={{
