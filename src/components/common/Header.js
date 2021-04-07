@@ -3,24 +3,8 @@ import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 
 import cityspireLogo from '../../assets/imgs/cityspireLogo.png';
-import {
-  Row,
-  Col,
-  Menu,
-  Dropdown,
-  Avatar,
-  Button,
-  Image,
-  Input,
-  Space,
-  Divider,
-} from 'antd';
-import {
-  UserOutlined,
-  DownOutlined,
-  SearchOutlined,
-  AudioOutlined,
-} from '@ant-design/icons';
+import { Row, Col, Menu, Dropdown, Avatar, Image, Space, Divider } from 'antd';
+import { UserOutlined, DownOutlined } from '@ant-design/icons';
 
 const HeaderStyle = {
   display: 'flex',
@@ -32,7 +16,7 @@ const HeaderStyle = {
 };
 
 const Header = () => {
-  const { authService, authState } = useOktaAuth();
+  const { authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
