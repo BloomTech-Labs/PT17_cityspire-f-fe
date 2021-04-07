@@ -13,7 +13,7 @@ export const fetchSavedCity = profileId => {
     dispatch({ type: FETCHING_CITIES_START });
 
     try {
-      const res = await axios.get(`${url}/profile/${profileId}/city`);
+      const res = await axios.get(`${url}/profile/${profileId}/savedCity`);
 
       dispatch({
         type: FETCHING_CITIES_SUCCESS,
@@ -29,7 +29,7 @@ export const pinCity = (profileId, cityData) => {
   return async dispatch => {
     try {
       const res = await axios.post(
-        `${url}/profile/${profileId}/city`,
+        `${url}/profile/${profileId}/savedCity`,
         cityData
       );
 
@@ -47,7 +47,7 @@ export const unpinCity = (profileId, cityId) => {
   return async dispatch => {
     try {
       const res = await axios.delete(
-        `${url}/profile/${profileId}/city/${cityId}`
+        `${url}/profile/${profileId}/savedCity/${cityId}`
       );
 
       dispatch({

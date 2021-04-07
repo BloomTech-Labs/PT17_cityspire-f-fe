@@ -63,8 +63,12 @@ const Header = () => {
       <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
         Pinned Cities
       </Menu.Item>
+      <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
+        Favorites
+      </Menu.Item>
     </Menu>
   );
+
   // BEG: sdh
   const dropdown = (
     <Menu>
@@ -89,6 +93,7 @@ const Header = () => {
     </Menu>
   );
   // END: sdh
+
   return (
     <Row style={HeaderStyle}>
       <Col>
@@ -120,6 +125,7 @@ const Header = () => {
                 {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
               </Space>
             </Dropdown>
+
             <Divider type="vertical" />
             <a href="/" style={{ color: 'grey' }}>
               <SearchOutlined
