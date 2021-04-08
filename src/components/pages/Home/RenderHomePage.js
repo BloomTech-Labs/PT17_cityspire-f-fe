@@ -68,7 +68,7 @@ function RenderHomePage() {
     <Layout className="layout">
       <Header />
       <FadeInSection>
-        <Carousel autoplaySpeed={5000}>
+        <Carousel autoplay autoplaySpeed={5000}>
           <div style={carouselStyle}>
             <div style={imgContainer}>
               <img style={carouselPic} src={losAngeles1} alt="Los Angeles" />
