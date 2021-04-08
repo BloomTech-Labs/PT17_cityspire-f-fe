@@ -152,8 +152,7 @@ function RenderHomePage() {
         style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
       >
         <SearchForm />
-      </Content>
-
+      </Content>{' '}
       <Space size="large" align="center">
         <p
           style={{
@@ -178,7 +177,6 @@ function RenderHomePage() {
           }}
         />{' '}
       </Space>
-
       <a
         href="https://cityspire-states.netlify.app/"
         style={{
@@ -193,7 +191,6 @@ function RenderHomePage() {
       >
         Learn more about US States
       </a>
-
       <Carousel
         autoplay
         style={{
@@ -227,7 +224,6 @@ function RenderHomePage() {
           </h3>
         </div>
       </Carousel>
-
       <Image
         preview={false}
         src={citylife}

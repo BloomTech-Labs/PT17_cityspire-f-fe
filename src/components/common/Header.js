@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
-
+import { SearchForm } from '../common';
 import cityspireLogo from '../../assets/imgs/cityspireLogo.png';
 import {
   Row,
@@ -12,6 +12,7 @@ import {
   Button,
   Image,
   Input,
+  Layout,
   Space,
   Divider,
 } from 'antd';
@@ -21,7 +22,7 @@ import {
   SearchOutlined,
   AudioOutlined,
 } from '@ant-design/icons';
-
+const { Content } = Layout;
 const HeaderStyle = {
   display: 'flex',
   justifyContent: 'space-between',
@@ -30,18 +31,14 @@ const HeaderStyle = {
   borderBottom: 'solid thin #eee',
   backgroundColor: 'white',
 };
-
 const Header = () => {
   const { authService, authState } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
-
   const { push } = useHistory();
-
   useEffect(() => {
     let isSubscribed = true;
-
     memoAuthService
       .getUser()
       .then(info => {
@@ -58,11 +55,9 @@ const Header = () => {
       });
     return () => (isSubscribed = false);
   }, [memoAuthService]);
-
   const handleOnClick = id => {
     push(`/profile/${id}/dashboard`);
   };
-
   const menu = (
     <Menu>
       <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
@@ -110,7 +105,13 @@ const Header = () => {
           />
         </a>
       </Col>
-
+      {/* STARTED: sdh */}
+      <Content
+        style={{ height: '15px', marginTop: '-25rem', marginBottom: '18rem' }}
+      >
+        <SearchForm />
+      </Content>
+      {/* END: sdh */}
       <Col>
         <Row>
           <Space size="large">
@@ -148,5 +149,4 @@ const Header = () => {
     </Row>
   );
 };
-
 export default Header;
