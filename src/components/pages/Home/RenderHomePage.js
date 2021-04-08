@@ -70,7 +70,6 @@ function RenderHomePage() {
   return (
     <Layout className="layout">
       <Header />
-
       <Carousel autoplay autoplaySpeed={5000}>
         <div style={carouselStyle}>
           <div style={imgContainer}>
@@ -115,7 +114,6 @@ function RenderHomePage() {
           </div>
         </div>
       </Carousel>
-
       <Space
         size="large"
         align="center"
@@ -128,13 +126,11 @@ function RenderHomePage() {
       >
         {' '}
       </Space>
-
       <Content
         style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
       >
         <SearchForm />
-      </Content>
-
+      </Content>{' '}
       <Space size="large" align="center">
         <p
           style={{
@@ -159,7 +155,6 @@ function RenderHomePage() {
           }}
         />{' '}
       </Space>
-
       <a
         href="https://cityspire-states.netlify.app/"
         style={{
@@ -174,7 +169,6 @@ function RenderHomePage() {
       >
         Learn more about US States
       </a>
-
       <Carousel
         autoplay
         style={{
@@ -208,7 +202,6 @@ function RenderHomePage() {
           </h3>
         </div>
       </Carousel>
-
       <Image
         preview={false}
         src={citylife}
