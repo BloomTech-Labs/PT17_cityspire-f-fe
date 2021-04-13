@@ -52,10 +52,6 @@ table {
 }
          
 
-
-
-         
-
 .btn-grad {background-image: linear-gradient(to right, #01336E 0%, #CC9F34  51%, #0C1101  100%)}
 .btn-grad {
    /* margin: 0 auto; */
@@ -74,7 +70,7 @@ table {
  }
 
  .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
+   background-position: right center; 
    color: #fff;
    text-decoration: none;
  }
@@ -83,7 +79,7 @@ table {
  @media screen and (max-width: 1370px) {
   .btn-grad {
     top: 340px;
-    left: 550px;
+    left: 570px;
   }
 }
 
@@ -95,7 +91,7 @@ table {
     background-size: contain;
     margin-top: -5px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
   }
 
  .header {
@@ -117,16 +113,22 @@ table {
  }
 
  .perfect {
-   font-size: 25px;
+   font-size: 40px;
    width: 100%;
    color: #01336E;
    font-weight: bold;
    padding-top: 60px;
  }
 
+ @media screen and (max-width: 1370px) {
+   .perfect {
+     font-size: 25px;
+   }
+ }
+
  .fade-in-section {
     opacity: 0;
-    transform: translateY(20vh);
+    transform: translateY(30vh);
     visibility: hidden;
     transition: opacity 1200ms ease-out, transform 600ms ease-out,
       visibility 1200ms ease-out;
@@ -147,5 +149,31 @@ table {
     padding: 30px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
     box-shadow: 0px 5px 15px black;
+  }
+
+  .card {
+    width: 340px;
+    left: 130px;
+    border-radius: 15px;
+  }
+
+
+  @media screen and (max-width: 1370px) {
+    .card {
+      width: 300px;
+      left: 60px;
+    }
+  }
+
+
+  .cardImg {
+    border: 1px solid rgba(0, 0, 0, 0.334);
+     height: 245px;
+  }
+
+  @media screen and (max-width: 1370px) {
+    .cardImg {
+      height: 220px;
+    }
   }
 

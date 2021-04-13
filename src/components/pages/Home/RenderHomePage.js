@@ -24,7 +24,7 @@ const contentStyle = {
 };
 
 const carouselStyle = {
-  height: '520px',
+  height: '577px',
   width: '100%',
   color: '#fff',
   lineHeight: '160px',
@@ -35,7 +35,7 @@ const carouselStyle = {
 const carouselPic = {
   borderTop: '1px solid rgba(0, 0, 0, 0.534)',
   margin: '0 auto',
-  height: '520px',
+  height: '577px',
   width: '100%',
   background: '#364d79',
 };
@@ -67,6 +67,7 @@ function RenderHomePage() {
   return (
     <Layout className="layout">
       <Header />
+
       <FadeInSection>
         <Carousel autoplay autoplaySpeed={5000}>
           <div style={carouselStyle}>
@@ -79,7 +80,7 @@ function RenderHomePage() {
             </div>
           </div>
 
-          <div style={carouselStyle}>
+          {/* <div style={carouselStyle}>
             <div style={imgContainer}>
               <img style={carouselPic} src={carousel2} alt="City" />
               <h1 style={imgText}>
@@ -110,7 +111,7 @@ function RenderHomePage() {
                 </span>
               </h1>
             </div>
-          </div>
+          </div> */}
         </Carousel>
       </FadeInSection>
 
@@ -133,102 +134,7 @@ function RenderHomePage() {
         </div>
       </FadeInSection>
 
-      {/* <Space
-        size="large"
-        align="center"
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          margin: '2%',
-          textAlign: 'center',
-        }}
-      >
-        {' '}
-      </Space> */}
-
       <InfoCards />
-
-      {/* <Content
-        style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
-      >
-        <SearchForm />
-      </Content>{' '}
-      <Space size="large" align="center">
-        <p
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            margin: '1%',
-            textAlign: 'center',
-            fontSize: '2rem',
-          }}
-        >
-          Searching for the perfect dream home but don't know where to start?
-          You're in the right place! Let CitySpire lead you to the desires of
-          your heart!
-        </p>
-        <Image
-          preview={false}
-          src={map}
-          style={{
-            width: '100%',
-            height: '100x',
-            marginBottom: '5%',
-          }}
-        />{' '}
-      </Space>
-      <a
-        href="https://cityspire-states.netlify.app/"
-        style={{
-          textAlign: 'center',
-          fontSize: '2rem',
-          background: 'navy',
-          color: 'white',
-          width: '30%',
-          margin: 'auto 35%',
-          marginBottom: '2%',
-        }}
-      >
-        Learn more about US States
-      </a>
-      <Carousel
-        autoplay
-        style={{
-          marginTop: '-2rem',
-        }}
-      >
-        <div>
-          <h3 style={contentStyle}>
-            {' '}
-            <Image className="Carousel" preview={false} src={city1} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image className="Carousel" preview={false} src={city2} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image className="Carousel" preview={false} src={city3} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image className="Carousel" preview={false} src={city4} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image className="Carousel" preview={false} src={city5} />
-          </h3>
-        </div>
-      </Carousel>
-      <Image
-        preview={false}
-        src={citylife}
-        style={{ width: '100%', height: '100px' }}
-      /> */}
       <Footer />
     </Layout>
   );
