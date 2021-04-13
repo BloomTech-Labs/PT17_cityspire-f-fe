@@ -5,3 +5,7 @@
 // Declare action TYPES at the top of the file
 export * from './cityData';
 export * from './cityOperations';
+export * from './weatherData';
+export * from './schoolData';
+// export * from './rentalData';
+// export * from './jobData';

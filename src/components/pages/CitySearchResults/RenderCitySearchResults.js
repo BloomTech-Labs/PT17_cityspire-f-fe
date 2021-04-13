@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapboxGLMap } from '../../common';
+import { MapboxGLMap } from '../../common/';
 
 import {
   Statistic,
@@ -70,9 +70,7 @@ const RenderCitySearchResults = ({
               <EnvironmentFilled
                 style={{ marginRight: '.5rem', color: 'rgb(24, 144, 255)' }}
               />
-              {cityData.city
-                ? `${cityData.city.city}, ${cityData.city.state}`
-                : 'loading...'}
+              {cityData ? `${cityData.city}, ${cityData.city}` : 'loading...'}
             </h1>
           </PageHeader>
         </Col>
