@@ -52,7 +52,7 @@ const RenderCitySearchResults = ({
               <EnvironmentFilled
                 style={{ marginRight: '.5rem', color: 'rgb(24, 144, 255)' }}
               />
-              {citySearchData ? `${citySearchData.city}, ${citySearch.city}` : 'loading...'}
+              {citySearchData ? `${citySearchData.city}, ${citySearchData.city}` : 'loading...'}
 
             </h1>
           </PageHeader>
