@@ -1,5 +1,7 @@
 import React from 'react';
-// import { MapboxGLMap } from '../../common';
+
+import { MapboxGLMap } from '../../common';
+
 
 import { Statistic, Row, Col, Card, PageHeader, Button } from 'antd';
 
@@ -28,7 +30,7 @@ const CardStyle = {
 };
 
 const RenderCitySearchResults = ({
-  cityData,
+  citySearchData,
   handleSaveCity,
   handleOnCityClick,
 }) => {
@@ -46,34 +48,37 @@ const RenderCitySearchResults = ({
         <Col>
           <PageHeader style={{ marginLeft: '-1.5rem' }}>
             <h1 style={{ fontSize: '1.5rem' }}>
-              {cityData.city
-                ? `${cityData.city.city}, ${cityData.city.state}`
-                : 'Loading...'}
+
+              <EnvironmentFilled
+                style={{ marginRight: '.5rem', color: 'rgb(24, 144, 255)' }}
+              />
+              {citySearchData ? `${citySearchData.city}, ${citySearchData.city}` : 'loading...'}
+
             </h1>
           </PageHeader>
         </Col>
       </Row>
 
-      {/* <MapboxGLMap lat={cityData.latitude} long={cityData.longitude} /> */}
+      {/* <MapboxGLMap lat={ citySearchData.latitude} long={citySearchData.longitude} /> */}
 
       <Row style={RowStyle} wrap="true">
         <Col xs={24} sm={12} md={6}>
           <Card style={CardStyle} title="Rental Price">
             <Statistic
-              value={cityData.rental_price}
+              value={citySearchData.rental_price}
               valueStyle={StatisticStyle}
             />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
           <Card style={CardStyle} title="Crime">
-            <Statistic value={cityData.crime} valueStyle={StatisticStyle} />
+            <Statistic value={citySearchData.crime} valueStyle={StatisticStyle} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
           <Card style={CardStyle} title="Air Quality Index">
             <Statistic
-              value={cityData.air_quality_index}
+              value={citySearchData.air_quality_index}
               valueStyle={StatisticStyle}
             />
           </Card>
@@ -81,7 +86,7 @@ const RenderCitySearchResults = ({
         <Col xs={24} sm={12} md={6}>
           <Card style={CardStyle} title="Diversity Index">
             <Statistic
-              value={cityData.diversity_index}
+              value={citySearchData.diversity_index}
               valueStyle={StatisticStyle}
             />
           </Card>
@@ -89,7 +94,7 @@ const RenderCitySearchResults = ({
         <Col xs={24} sm={12} md={8}>
           <Card style={CardStyle} title="Population">
             <Statistic
-              value={cityData.population}
+              value={citySearchData.population}
               valueStyle={StatisticStyle}
             />
           </Card>
@@ -97,7 +102,7 @@ const RenderCitySearchResults = ({
         <Col xs={24} sm={12} md={8}>
           <Card style={CardStyle} title="Walkability">
             <Statistic
-              value={cityData.walkability}
+              value={citySearchData.walkability}
               valueStyle={StatisticStyle}
               suffix="/ 100"
             />
@@ -106,7 +111,7 @@ const RenderCitySearchResults = ({
         <Col xs={24} sm={12} md={8}>
           <Card style={CardStyle} title="Livability">
             <Statistic
-              value={cityData.livability}
+              value={citySearchData.livability}
               valueStyle={StatisticStyle}
               suffix="/ 100"
             />
@@ -142,11 +147,11 @@ const RenderCitySearchResults = ({
       <Row style={RowStyle} wrap="true">
         <Col xs={24}>
           <h1 style={{ fontSize: '1.2rem' }}>
-            Other Cities Like {cityData.city}
+            Other Cities Like {citySearchData.city}
           </h1>
         </Col>
-        {cityData.recommendations &&
-          cityData.recommendations.map(item => {
+        {citySearchData.recommendations &&
+          citySearchData.recommendations.map(item => {
             return (
               <Col xs={24} sm={12} md={8} key={item.city}>
                 <Card
