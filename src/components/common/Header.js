@@ -9,19 +9,12 @@ import {
   Menu,
   Dropdown,
   Avatar,
-  Button,
   Image,
-  Input,
   Layout,
   Space,
   Divider,
 } from 'antd';
-import {
-  UserOutlined,
-  DownOutlined,
-  SearchOutlined,
-  AudioOutlined,
-} from '@ant-design/icons';
+import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 const HeaderStyle = {
   display: 'flex',
@@ -32,7 +25,7 @@ const HeaderStyle = {
   backgroundColor: 'white',
 };
 const Header = () => {
-  const { authService, authState } = useOktaAuth();
+  const { authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
@@ -128,9 +121,7 @@ const Header = () => {
 
             <Divider type="vertical" />
             <a href="/" style={{ color: 'grey' }}>
-              <SearchOutlined
-                style={{ cursor: 'pointer', fontSize: '1.15rem' }}
-              />
+              Map View
             </a>
             <Divider type="vertical" />
             {/* BEG: sdh */}
