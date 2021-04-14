@@ -83,6 +83,18 @@ table {
   }
 }
 
+@media screen and (min-width: 1400px) {
+  .btn-grad {
+    left: 610px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .btn-grad {
+    left: 850px;
+  }
+}
+
 
  .headerContainer {
     width: 100%;
@@ -91,14 +103,14 @@ table {
     background-size: contain;
     margin-top: -5px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   }
 
  .header {
    margin: auto;
    padding-bottom: 20px;
    width: 50vw;
-   height: 25vh;
+   height: 30vh;
    line-height: 20px;
    color:rgba(0, 0, 0, 0.63);
    font-family: 'Poppins', sans-serif;
@@ -120,11 +132,25 @@ table {
    padding-top: 60px;
  }
 
+
+
  @media screen and (max-width: 1370px) {
    .perfect {
      font-size: 25px;
    }
  }
+
+ @media screen and (min-width: 1400px) {
+   .perfect {
+     font-size: 29px;
+   }
+ }
+
+ @media screen and (min-width: 1920px) {
+  .perfect {
+    font-size: 40px;
+  }
+}
 
  .fade-in-section {
     opacity: 0;
@@ -152,16 +178,25 @@ table {
   }
 
   .card {
-    width: 340px;
-    left: 130px;
-    border-radius: 15px;
+    left: 150px;
   }
 
 
   @media screen and (max-width: 1370px) {
     .card {
-      width: 300px;
-      left: 60px;
+      left: 40px;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .card {
+      left: 55px;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    .card {
+      left: 150px;
     }
   }
 
@@ -177,3 +212,51 @@ table {
     }
   }
 
+
+.downArrow {
+  text-align: center;
+  margin: 8% 0;
+  top: 350px;
+  left: 940px;
+  position: absolute;
+  filter: invert(100%);
+}
+
+@media screen and (max-width: 1370px) {
+  .downArrow {
+    top: 400px;
+    left: 660px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .downArrow {
+    top: 380px;
+    left: 700px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .downArrow {
+    left: 940px;
+    top: 350px;
+  }
+}
+
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
