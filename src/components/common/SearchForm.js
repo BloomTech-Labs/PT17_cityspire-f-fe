@@ -26,12 +26,12 @@ const SearchForm = ({ fetchCityData }) => {
   const [searchValue, setSearchValue] = useState('');
 
   // Split search value right by the common
-  const splitSearchValue = searchValue.toLowerCase().split(', ');
+  const splitSearchValue = searchValue.split(', ');
 
   // Set the split value to city and state
   const cityAndState = {
     city: splitSearchValue[0],
-    state: splitSearchValue[1],
+    // state: splitSearchValue[1],
   };
 
   const { Search } = Input;
@@ -41,9 +41,9 @@ const SearchForm = ({ fetchCityData }) => {
   };
 
   const onSubmit = () => {
-    localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
-    fetchCityData(cityAndState);
-    push(`/${cityAndState.state}/${cityAndState.city}`);
+    localStorage.setItem('cityAndState', JSON.stringify(searchValue));
+    fetchCityData(searchValue);
+    push(`/citySearch/${searchValue}`);
     setSearchValue('');
   };
 
@@ -57,7 +57,7 @@ const SearchForm = ({ fetchCityData }) => {
             onSearch={() => onSubmit()}
             size="medium"
             style={SearchStyle}
-            value={searchValue.city}
+            value={searchValue}
             onChange={handleChange}
           />
         </div>

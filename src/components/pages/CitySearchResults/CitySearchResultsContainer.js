@@ -30,26 +30,27 @@ const CitySearchResultsContainer = ({
 
   useEffect(() => {
     fetchCityData(cityAndState);
+    console.log('cityandstate', cityAndState);
   }, [fetchCityData, cityAndState]);
 
   const savedNotification = () => {
     notification.open({
       message: 'City Pinned',
-      description: `${cityData.city.city}, ${cityData.city.state}, has been pinned and can be viewed on the Pinned Cities page.`,
+      description: `${cityData.city}, ${cityData.state}, has been pinned and can be viewed on the Pinned Cities page.`,
     });
   };
 
   const handleSaveCity = () => {
     const cityInfo = {
-      city: cityData.city.city,
-      state: cityData.city.state,
-      rental_price: cityData.rental_price,
-      crime: cityData.crime,
-      air_quality_index: cityData.air_quality_index,
-      walkability: cityData.walkability,
-      livability: cityData.livability,
+      city: cityData.city,
+      state: cityData.state,
       population: cityData.population,
-      diversity_index: cityData.diversity_index,
+      dangerousRanking: cityData.dangerousRanking,
+      safetyRanking: cityData.safetyRanking,
+      avgRentalPrice: cityData.avgRentalPrice,
+      unemploymentRate: cityData.unemploymentRate,
+      numberOfSunnyDays: cityData.numberOfSunnyDays,
+      schoolScore: cityData.schoolScore,
       latitude: cityData.latitude,
       longitude: cityData.longitude,
       profile_id: localStorage.getItem('token'),
@@ -63,7 +64,7 @@ const CitySearchResultsContainer = ({
   const handleOnCityClick = cityAndState => {
     localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
     setCityAndState(localStorage.getItem('cityAndState'));
-    push(`/${cityAndState.state}/${cityAndState.city}`);
+    push(`/citySearch/${cityAndState.city}`);
   };
 
   return (
@@ -81,7 +82,7 @@ const CitySearchResultsContainer = ({
             isSaved={isSaved}
             handleOnCityClick={handleOnCityClick}
             city={cityAndState.city}
-            state={cityAndState.state}
+            // state={cityAndState.state}
           />
           <Footer />
         </div>
