@@ -9,7 +9,7 @@ const initialState = {
   error: '',
   city: {},
 };
-export const safestCityDataReducer = (state = initialState, action) => {
+export const dangerousCityDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_DANGEROUSCITY_START:
       return {
