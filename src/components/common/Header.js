@@ -14,7 +14,7 @@ import {
   Space,
   Divider,
 } from 'antd';
-import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { UserOutlined, DownOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 const HeaderStyle = {
   display: 'flex',
