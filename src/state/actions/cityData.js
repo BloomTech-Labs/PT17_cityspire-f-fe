@@ -4,15 +4,14 @@ export const FETCHING_CITY_START = 'FETCHING_CITY_START';
 export const FETCHING_CITY_SUCCESS = 'FETCHING_CITY_SUCCESS';
 export const FETCHING_CITY_ERROR = 'FETCHING_CITY_ERROR';
 
+const url = 'http://localhost:8002';
+
 export const fetchCityData = cityInfo => {
+  console.log('CityInfo', cityInfo);
   return async dispatch => {
     dispatch({ type: FETCHING_CITY_START });
-
     try {
-      const res = await axios.post(
-        `https://cityscape-203.eba-ijacxhm2.us-east-1.elasticbeanstalk.com/api/get_data`,
-        cityInfo
-      );
+      const res = await axios.get(`${url}/citySearch/${cityInfo}`);
 
       dispatch({
         type: FETCHING_CITY_SUCCESS,
