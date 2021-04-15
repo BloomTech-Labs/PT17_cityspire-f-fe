@@ -1,0 +1,103 @@
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button';
+import axios from 'axios';
+
+function getModalStyle() {
+  const top = 50;
+  const left = 50;
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
+const useStyles = makeStyles(theme => ({
+  paper: {
+    allignItems: 'center',
+    justifyItems: 'center',
+    width: '430px',
+    position: 'absolute',
+    backgroundColor: 'lightgrey',
+    border: '2px solid #000',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(-50%, -50%)',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    borderRadius: '20px',
+  },
+}));
+
+function SafestModal() {
+  const [safeCities, setSafeCities] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:8002/safestCities')
+      .then(res => {
+        setSafeCities(res.data);
+      })
+      .catch(err => {
+        console.error('There was an error', err);
+      });
+  }, []);
+
+  const classes = useStyles();
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2
+        className="modalH2"
+        id="simple-modal-title"
+        style={{ fontWeight: 'bold', fontSize: '23px' }}
+      >
+        Safest Cities in America
+      </h2>
+      <br />
+      <p id="simple-modal-description">
+        {safeCities.map((city, index) => {
+          return (
+            <div key={index}>
+              <p>
+                &#9632; {city.city}, {city.state}
+              </p>
+              <br />
+            </div>
+          );
+        })}
+      </p>
+    </div>
+  );
+
+  return (
+    <div>
+      <Button size="small" color="primary" onClick={handleOpen}>
+        View
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+    </div>
+  );
+}
+
+export default SafestModal;

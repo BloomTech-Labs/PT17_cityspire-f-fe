@@ -50,7 +50,10 @@ table {
 * {
   box-sizing: border-box;
 }
+
          
+
+/* Hero Image Styles */
 
 .btn-grad {background-image: linear-gradient(to right, #01336E 0%, #CC9F34  51%, #0C1101  100%)}
 .btn-grad {
@@ -95,6 +98,72 @@ table {
   }
 }
 
+@media screen and (min-width: 1980px) {
+  .btn-grad {
+    left: 880px;
+  }
+}
+
+
+.downArrow {
+  text-align: center;
+  margin: 8% 0;
+  top: 350px;
+  left: 940px;
+  position: absolute;
+  filter: invert(100%);
+}
+
+@media screen and (max-width: 1370px) {
+  .downArrow {
+    top: 400px;
+    left: 660px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .downArrow {
+    top: 380px;
+    left: 700px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .downArrow {
+    left: 940px;
+    top: 350px;
+  }
+}
+
+@media screen and (min-width: 1980px) {
+  .downArrow {
+    left: 960px;
+  }
+}
+
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+
+
+
+/* About Section Styles */
+
 
  .headerContainer {
     width: 100%;
@@ -125,32 +194,34 @@ table {
  }
 
  .perfect {
-   font-size: 40px;
+   font-size: 50px;
    width: 100%;
    color: #01336E;
    font-weight: bold;
    padding-top: 60px;
+   font-family: 'Barlow', sans-serif;
  }
-
-
 
  @media screen and (max-width: 1370px) {
    .perfect {
-     font-size: 25px;
+     font-size: 28px;
    }
  }
 
  @media screen and (min-width: 1400px) {
    .perfect {
-     font-size: 29px;
+     font-size: 32px;
    }
  }
 
  @media screen and (min-width: 1920px) {
   .perfect {
-    font-size: 40px;
+    font-size: 43px;
+    margin-bottom: 10px;
   }
 }
+
+/* Fade in util component styles */
 
  .fade-in-section {
     opacity: 0;
@@ -165,6 +236,9 @@ table {
     transform: none;
     visibility: visible;
   }
+
+
+  /* Card styles */
 
 
   .cardsContainer {
@@ -201,62 +275,4 @@ table {
   }
 
 
-  .cardImg {
-    border: 1px solid rgba(0, 0, 0, 0.334);
-     height: 245px;
-  }
 
-  @media screen and (max-width: 1370px) {
-    .cardImg {
-      height: 220px;
-    }
-  }
-
-
-.downArrow {
-  text-align: center;
-  margin: 8% 0;
-  top: 350px;
-  left: 940px;
-  position: absolute;
-  filter: invert(100%);
-}
-
-@media screen and (max-width: 1370px) {
-  .downArrow {
-    top: 400px;
-    left: 660px;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .downArrow {
-    top: 380px;
-    left: 700px;
-  }
-}
-
-@media screen and (min-width: 1920px) {
-  .downArrow {
-    left: 940px;
-    top: 350px;
-  }
-}
-
-.bounce {
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
-}

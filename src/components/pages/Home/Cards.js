@@ -9,7 +9,14 @@ import Typography from '@material-ui/core/Typography';
 import '../Home/Home.css';
 import FadeInSection from '../../../utils/FadeIn';
 import { Row, Col } from 'antd';
-import { jobMarkets, rentalCosts, bestWeather } from './PictureLinks';
+import {
+  jobMarkets,
+  rentalCosts,
+  bestWeather,
+  bestSchools,
+  safestCity,
+} from './PictureLinks';
+import SafestModal from './safestModal';
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +38,7 @@ export default function InfoCard() {
                   component="img"
                   alt="Best Schools"
                   height="140"
-                  image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuek83NbzTG-vdS3_kRb93HPs2kDfS9AtgKg&usqp=CAU"
+                  image={bestSchools}
                   title="Best Schools"
                 />
                 <CardContent>
@@ -47,7 +54,9 @@ export default function InfoCard() {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions></CardActions>
+              <CardActions>
+                <SafestModal />
+              </CardActions>
             </Card>
           </Col>
 
@@ -58,7 +67,7 @@ export default function InfoCard() {
                   component="img"
                   alt="Safest Cities"
                   height="140"
-                  image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2fBhrVSzrDrMcrUCJUzcUIv4XCRbIiEJVBQ&usqp=CAU"
+                  image={safestCity}
                   title="Safest Cities"
                 />
                 <CardContent>
@@ -74,7 +83,9 @@ export default function InfoCard() {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions></CardActions>
+              <CardActions>
+                <SafestModal />
+              </CardActions>
             </Card>
           </Col>
 
@@ -101,7 +112,9 @@ export default function InfoCard() {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions></CardActions>
+              <CardActions>
+                <SafestModal />
+              </CardActions>
             </Card>
           </Col>
 
@@ -128,7 +141,9 @@ export default function InfoCard() {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions></CardActions>
+              <CardActions>
+                <SafestModal />
+              </CardActions>
             </Card>
           </Col>
 
@@ -155,7 +170,9 @@ export default function InfoCard() {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions></CardActions>
+              <CardActions>
+                <SafestModal />
+              </CardActions>
             </Card>
           </Col>
 
@@ -182,7 +199,9 @@ export default function InfoCard() {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions></CardActions>
+              <CardActions>
+                <SafestModal />
+              </CardActions>
             </Card>
           </Col>
         </Row>
