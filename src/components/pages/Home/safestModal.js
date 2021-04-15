@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { fetchCityData } from '../../../state/actions';
 
 function getModalStyle() {
   const top = 50;
@@ -34,6 +36,7 @@ const useStyles = makeStyles(theme => ({
 
 function SafestModal() {
   const [safeCities, setSafeCities] = useState([]);
+  const { push } = useHistory();
 
   useEffect(() => {
     axios
@@ -58,12 +61,24 @@ function SafestModal() {
     setOpen(false);
   };
 
+  const setCityAndState = value => {
+    localStorage.setItem('cityAndState', JSON.stringify(value));
+    fetchCityData(value);
+    push(`/citySearch/${value}`);
+  };
+
   const body = (
-    <div style={modalStyle} className={classes.paper}>
+    <div style={modalStyle} className="modal">
       <h2
         className="modalH2"
         id="simple-modal-title"
-        style={{ fontWeight: 'bold', fontSize: '23px' }}
+        style={{
+          fontWeight: 'bold',
+          fontSize: '23px',
+          fontFamily: 'Barlow, sans-serif',
+          textDecoration: 'underline',
+          color: '#01336E',
+        }}
       >
         Safest Cities in America
       </h2>
@@ -72,9 +87,12 @@ function SafestModal() {
         {safeCities.map((city, index) => {
           return (
             <div key={index}>
-              <p>
-                &#9632; {city.city}, {city.state}
-              </p>
+              <a
+                className="modalText"
+                onClick={() => setCityAndState(city.city)}
+              >
+                &#9632; {city.city}, {city.state} <br />
+              </a>
               <br />
             </div>
           );

@@ -1,9 +1,9 @@
 import React from 'react';
-
 import losAngeles1 from '../../../assets/imgs/LosAngeles1.jpg';
 import '../Home/Home.css';
 import FadeInSection from '../../../utils/FadeIn';
 import { Carousel } from 'antd';
+import TypeIt from 'typeit-react';
 import { arrow } from './PictureLinks';
 
 const carouselStyle = {
@@ -54,7 +54,31 @@ const HeroImage = () => {
           <div style={imgContainer}>
             <img style={carouselPic} src={losAngeles1} alt="Los Angeles" />
             <h1 style={imgText}>
-              <span style={fontStyle}>Find your dream city</span>
+              <TypeIt
+                element={'h1'}
+                style={fontStyle}
+                options={{ loop: true }}
+                getBeforeInit={instance => {
+                  instance
+                    .pause(1000)
+                    .type('Find your dream city')
+                    .pause(850)
+                    .delete(4)
+                    .pause(650)
+                    .type('school')
+                    .pause(750)
+                    .delete(6)
+                    .pause(650)
+                    .type('job')
+                    .pause(1000)
+                    .delete(3)
+                    .pause(850)
+                    .type('home')
+                    .pause(5000);
+                  return instance;
+                }}
+              />
+              ;{/* <span style={fontStyle}>Find your dream city</span> */}
             </h1>
             <button className="btn-grad">Create Account</button>
             <div class="downArrow bounce">

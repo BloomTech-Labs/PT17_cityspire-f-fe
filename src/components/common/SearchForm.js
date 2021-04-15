@@ -14,10 +14,12 @@ const ColStyle = {
 };
 
 const SearchStyle = {
-  width: '27vw',
+  width: '35vw',
+  marginLeft: '50px',
   minWidth: '20rem',
   maxWidth: '60rem',
   padding: '1rem',
+  borderRadius: '15px',
 };
 
 const SearchForm = ({ fetchCityData }) => {

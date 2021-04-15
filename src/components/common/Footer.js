@@ -10,7 +10,14 @@ const Footer = () => {
   }, []);
   return (
     <footer
-      style={{ backgroundColor: 'white', textAlign: 'center', padding: '1rem' }}
+      style={{
+        backgroundColor: '#01336E',
+        textAlign: 'center',
+        padding: '1rem',
+        borderTop: 'solid thin #0C1101',
+        fontFamily: 'Barlow, sans-serif',
+        color: 'white',
+      }}
     >
       Cityspire ©{date} Created by Labspt17-cityspire-f
     </footer>

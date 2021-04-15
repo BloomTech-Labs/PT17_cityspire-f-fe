@@ -15,21 +15,25 @@ import {
   Divider,
 } from 'antd';
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
+import { accessToken } from 'mapbox-gl/dist/mapbox-gl-csp';
 const { Content } = Layout;
 const HeaderStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   padding: '1.25rem 5vw',
-  borderBottom: 'solid thin #eee',
-  backgroundColor: 'white',
+  borderBottom: 'solid thin #0c110196',
+  backgroundColor: '#01336E',
 };
+
 const Header = () => {
   const { authService } = useOktaAuth();
+  const { oktaAuth, authState } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
   const { push } = useHistory();
+
   useEffect(() => {
     let isSubscribed = true;
     memoAuthService
@@ -48,22 +52,60 @@ const Header = () => {
       });
     return () => (isSubscribed = false);
   }, [memoAuthService]);
+
   const handleOnClick = id => {
     push(`/profile/${id}/dashboard`);
   };
-  const menu = (
+
+  // const menu = (
+  //    authState.isAuthenticated  ?
+  //   <Menu>
+  //     <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
+  //       Pinned Cities
+  //     </Menu.Item>
+  //     <Menu.Divider />
+  //     <Menu.Item key="3" onClick={() => authService.logout()}>
+  //       Logout
+  //     </Menu.Item>
+  //   </Menu>
+
+  //   :
+
+  //   <Menu>
+  //     <Menu.Item key="0">
+  //       <a rel="noopener noreferrer" href="/login">
+  //         Login
+  //       </a>
+  //     </Menu.Item>
+  //     <Menu.Item key="1">
+  //       <a
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //         href="https://www.lambdaschool.com"
+  //       >
+  //         Create Account
+  //       </a>
+  //     </Menu.Item>
+  //     <Menu.Divider />
+  //     <Menu.Item key="3" onClick={() => authService.logout()}>
+  //       Logout
+  //     </Menu.Item>
+  //   </Menu>
+
+  // );
+
+  // BEG: sdh
+  const menu = authState.isAuthenticated ? (
     <Menu>
       <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
         Pinned Cities
       </Menu.Item>
-      <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
-        Favorites
+      <Menu.Divider />
+      <Menu.Item key="3" onClick={() => authService.logout()}>
+        Logout
       </Menu.Item>
     </Menu>
-  );
-
-  // BEG: sdh
-  const dropdown = (
+  ) : (
     <Menu>
       <Menu.Item key="0">
         <a rel="noopener noreferrer" href="/login">
@@ -80,9 +122,6 @@ const Header = () => {
         </a>
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="3" onClick={() => authService.logout()}>
-        Logout
-      </Menu.Item>
     </Menu>
   );
   // END: sdh
@@ -92,6 +131,7 @@ const Header = () => {
       <Col>
         <a href="/">
           <Image
+            className="logo"
             preview={false}
             src={cityspireLogo}
             style={{ width: '200px' }}
@@ -108,32 +148,40 @@ const Header = () => {
       <Col>
         <Row>
           <Space size="large">
+            <Divider type="vertical" />
+            <a href="/" className="mapText">
+              Map View
+            </a>
+            <Divider type="vertical" />
+
             <Dropdown overlay={menu} trigger={['click']}>
               <Space
                 size="small"
                 onClick={e => e.preventDefault()}
-                style={{ cursor: 'pointer' }}
+                style={{ color: 'white', cursor: 'pointer' }}
               >
                 <Avatar size="large" icon={<UserOutlined />} />
-                {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
+                {userInfo ? (
+                  userInfo.name
+                ) : (
+                  <a className="login" onClick={e => e.preventDefault()}>
+                    Login
+                  </a>
+                )}
+                <DownOutlined />
               </Space>
             </Dropdown>
 
-            <Divider type="vertical" />
-            <a href="/" style={{ color: 'grey' }}>
-              Map View
-            </a>
-            <Divider type="vertical" />
             {/* BEG: sdh */}
-            <Dropdown overlay={dropdown}>
+            {/* <Dropdown overlay={dropdown}>
               <a
-                style={{ color: '#01336E' }}
+                style={{ color: 'white', fontFamily: 'Barlow, sans-serif' }}
                 className="ant-dropdown-link"
                 onClick={e => e.preventDefault()}
               >
                 Login <DownOutlined />
               </a>
-            </Dropdown>
+            </Dropdown> */}
             {/* END: sdh */}
           </Space>
         </Row>
