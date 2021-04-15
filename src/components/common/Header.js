@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 import { SearchForm } from '../common';
-import cityspireLogo from '../../assets/imgs/cityspireLogo.png';
+import cityspireLogo from '../../assets/imgs/logo.png';
 import {
   Row,
   Col,
@@ -14,7 +14,7 @@ import {
   Space,
   Divider,
 } from 'antd';
-import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { UserOutlined, DownOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 const HeaderStyle = {
   display: 'flex',
@@ -94,7 +94,7 @@ const Header = () => {
           <Image
             preview={false}
             src={cityspireLogo}
-            style={{ width: '120px' }}
+            style={{ width: '200px' }}
           />
         </a>
       </Col>
@@ -127,10 +127,11 @@ const Header = () => {
             {/* BEG: sdh */}
             <Dropdown overlay={dropdown}>
               <a
+                style={{ color: '#01336E' }}
                 className="ant-dropdown-link"
                 onClick={e => e.preventDefault()}
               >
-                login <DownOutlined />
+                Login <DownOutlined />
               </a>
             </Dropdown>
             {/* END: sdh */}
