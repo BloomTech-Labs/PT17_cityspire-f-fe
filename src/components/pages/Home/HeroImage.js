@@ -60,25 +60,24 @@ const HeroImage = () => {
                 options={{ loop: true }}
                 getBeforeInit={instance => {
                   instance
-                    .pause(1000)
-                    .type('Find your dream city')
-                    .pause(850)
+                    .pause(800)
+                    .type('Find your dream home')
+                    .pause(750)
                     .delete(4)
-                    .pause(650)
+                    .pause(750)
                     .type('school')
                     .pause(750)
                     .delete(6)
-                    .pause(650)
+                    .pause(750)
                     .type('job')
                     .pause(1000)
                     .delete(3)
-                    .pause(850)
-                    .type('home')
+                    .pause(750)
+                    .type('city')
                     .pause(5000);
                   return instance;
                 }}
               />
-              ;{/* <span style={fontStyle}>Find your dream city</span> */}
             </h1>
             <button className="btn-grad">Create Account</button>
             <div class="downArrow bounce">

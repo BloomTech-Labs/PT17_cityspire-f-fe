@@ -57,43 +57,6 @@ const Header = () => {
     push(`/profile/${id}/dashboard`);
   };
 
-  // const menu = (
-  //    authState.isAuthenticated  ?
-  //   <Menu>
-  //     <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
-  //       Pinned Cities
-  //     </Menu.Item>
-  //     <Menu.Divider />
-  //     <Menu.Item key="3" onClick={() => authService.logout()}>
-  //       Logout
-  //     </Menu.Item>
-  //   </Menu>
-
-  //   :
-
-  //   <Menu>
-  //     <Menu.Item key="0">
-  //       <a rel="noopener noreferrer" href="/login">
-  //         Login
-  //       </a>
-  //     </Menu.Item>
-  //     <Menu.Item key="1">
-  //       <a
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //         href="https://www.lambdaschool.com"
-  //       >
-  //         Create Account
-  //       </a>
-  //     </Menu.Item>
-  //     <Menu.Divider />
-  //     <Menu.Item key="3" onClick={() => authService.logout()}>
-  //       Logout
-  //     </Menu.Item>
-  //   </Menu>
-
-  // );
-
   // BEG: sdh
   const menu = authState.isAuthenticated ? (
     <Menu>
@@ -158,7 +121,7 @@ const Header = () => {
               <Space
                 size="small"
                 onClick={e => e.preventDefault()}
-                style={{ color: 'white', cursor: 'pointer' }}
+                className="userName"
               >
                 <Avatar size="large" icon={<UserOutlined />} />
                 {userInfo ? (
@@ -171,18 +134,6 @@ const Header = () => {
                 <DownOutlined />
               </Space>
             </Dropdown>
-
-            {/* BEG: sdh */}
-            {/* <Dropdown overlay={dropdown}>
-              <a
-                style={{ color: 'white', fontFamily: 'Barlow, sans-serif' }}
-                className="ant-dropdown-link"
-                onClick={e => e.preventDefault()}
-              >
-                Login <DownOutlined />
-              </a>
-            </Dropdown> */}
-            {/* END: sdh */}
           </Space>
         </Row>
       </Col>

@@ -1,3 +1,11 @@
+/* Color Palette
+"name":"Black Chocolate","hex":"0C1101",
+"name":"Satin Sheen Gold","hex":"CC9F34",
+"name":"Lavender Gray","hex":"C5C0CE",
+"name":"Prussian Blue","hex":"01336E",
+"name":"Umber","hex":"726355",
+*/
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -65,24 +73,33 @@ table {
 
 .mapText:hover {
   color: gold;
+  border-bottom: 2px solid gold;
+  padding-bottom: 15px;
 }
 
 .login {
   cursor: pointer;
   color: white;
   font-family: 'Barlow', sans-serif;
+  font-weight: bold;
 }
 
 .login:hover {
   color: gold;
+  border-bottom: 2px solid gold;
+  padding-bottom: 15px;
 }
 
-/* width: '35vw',
-  marginLeft: '50px',
-  minWidth: '20rem',
-  maxWidth: '60rem',
-  padding: '1rem',
-  borderRadius: '15px' */
+.userName {
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: 'Barlow', sans-serif;
+}
+
+.userName:hover {
+  color: gold;
+}
 
 .search {
   width: 35vw;
@@ -94,7 +111,7 @@ table {
 }
 
 .search:focus {
-  background-color: gold;
+  border: 2px solid gold;
 }
 
 
