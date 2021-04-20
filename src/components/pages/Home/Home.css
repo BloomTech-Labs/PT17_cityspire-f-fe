@@ -323,7 +323,6 @@ table {
     left: 150px;
   }
 
-
   @media screen and (max-width: 1370px) {
     .card {
       left: 40px;
@@ -339,6 +338,12 @@ table {
   @media screen and (min-width: 1920px) {
     .card {
       left: 150px;
+    }
+  }
+
+  @media screen and (min-width: 1536px) {
+    .card {
+      left: 75px;
     }
   }
 
