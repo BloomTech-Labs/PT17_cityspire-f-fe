@@ -17,6 +17,11 @@ import {
   safestCity,
 } from './PictureLinks';
 import SafestModal from './safestModal';
+import SchoolModal from './schoolModal';
+import DangerousModal from './dangerousModal';
+import WeatherModal from './weatherModal';
+import JobModal from './jobModal';
+import RentalModal from './rentalModal';
 
 const useStyles = makeStyles({
   root: {
@@ -55,7 +60,7 @@ export default function InfoCard() {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <SafestModal />
+                <SchoolModal />
               </CardActions>
             </Card>
           </Col>
@@ -113,7 +118,7 @@ export default function InfoCard() {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <SafestModal />
+                <DangerousModal />
               </CardActions>
             </Card>
           </Col>
@@ -142,7 +147,7 @@ export default function InfoCard() {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <SafestModal />
+                <JobModal />
               </CardActions>
             </Card>
           </Col>
@@ -171,7 +176,7 @@ export default function InfoCard() {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <SafestModal />
+                <RentalModal />
               </CardActions>
             </Card>
           </Col>
@@ -200,7 +205,7 @@ export default function InfoCard() {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <SafestModal />
+                <WeatherModal />
               </CardActions>
             </Card>
           </Col>
