@@ -62,7 +62,7 @@ function SchoolModal() {
   };
 
   const setCityAndState = value => {
-    localStorage.setItem('cityAndState', JSON.stringify(value));
+    localStorage.setItem('cityAndState', value);
     fetchCityData(value);
     push(`/citySearch/${value}`);
   };
