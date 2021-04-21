@@ -5,12 +5,10 @@ import {
   SmileTwoTone,
   HomeTwoTone,
 } from '@ant-design/icons';
-
 const StatisticStyle = {
   fontSize: '1.25rem',
   marginBottom: '1rem',
 };
-
 const RenderUserDashboard = ({
   savedCities,
   handleRemoveCity,
@@ -35,7 +33,6 @@ const RenderUserDashboard = ({
                 Pinned Cities
               </h2>
             </Col>
-
             {savedCities[key].map((item, i) => (
               <Col sm={24} md={12} lg={8} key={i}>
                 <Card style={{ fontSize: '1.2rem', margin: '1.5vw' }} key={i}>
@@ -46,26 +43,24 @@ const RenderUserDashboard = ({
                     <Col xs={8} sm={8} md={24} lg={12} xl={8}>
                       <Statistic
                         title="Rental Price"
-                        value={item.rental_price}
+                        value={item.avgRentalPrice}
                         prefix={<DollarCircleTwoTone twoToneColor="green" />}
                         valueStyle={StatisticStyle}
                       />
                     </Col>
                     <Col xs={8} sm={8} md={24} lg={12} xl={8}>
                       <Statistic
-                        title="Walkability"
-                        value={item.walkability}
+                        title="Weather"
+                        value={item.numberOfSunnyDays}
                         prefix={<SmileTwoTone />}
-                        suffix="/ 100"
                         valueStyle={StatisticStyle}
                       />
                     </Col>
                     <Col xs={8} sm={8} md={24} lg={12} xl={8}>
                       <Statistic
-                        title="Livability"
-                        value={item.livability}
+                        title="Population"
+                        value={item.population}
                         prefix={<HomeTwoTone twoToneColor="orange" />}
-                        suffix="/ 100"
                         valueStyle={StatisticStyle}
                       />
                     </Col>
@@ -77,7 +72,6 @@ const RenderUserDashboard = ({
                         onClick={() =>
                           handleOnCityClick({
                             city: item.city,
-                            state: item.state,
                           })
                         }
                       >
@@ -94,5 +88,4 @@ const RenderUserDashboard = ({
     </>
   );
 };
-
 export default RenderUserDashboard;
