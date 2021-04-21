@@ -1,23 +1,18 @@
 import React from 'react';
-
 // import { MapboxGLMap } from '../../common';
-
 import { Statistic, Row, Col, Card, PageHeader, Button } from 'antd';
-
 import { PushpinFilled, EnvironmentFilled } from '@ant-design/icons';
-
+import { useHistory } from 'react-router-dom';
 const StatisticStyle = {
   fontFamily: 'Barlow',
   fontSize: '1.5rem',
   textAlign: 'center',
 };
-
 const RowStyle = {
   margin: '3vw auto',
   padding: '0 5vw',
   maxWidth: '1366px',
 };
-
 const CardStyle = {
   fontFamily: 'Barlow',
   textAlign: 'center',
@@ -25,14 +20,12 @@ const CardStyle = {
   borderRadius: '20px',
   boxShadow: '2px 2px 10px 3px ghostwhite, -2px -2px 10px 3px rgba(0,0,0,0.19)',
 };
-
 const HeadStyle = {
   backgroundColor: 'ghostwhite',
   borderTopRightRadius: '20px',
   borderTopLeftRadius: '20px',
   borderBottom: '1px dotted #01336E',
 };
-
 const RenderCitySearchResults = ({
   cityData,
   handleSaveCity,
@@ -102,7 +95,6 @@ const RenderCitySearchResults = ({
           </Col>
         </Row>
       </Row>
-
       {/* <MapboxGLMap lat={ cityData.latitude} long={cityData.longitude} /> */}
       <Row style={RowStyle} wrap="true">
         <Col xs={24} sm={12} md={6}>
@@ -176,7 +168,6 @@ const RenderCitySearchResults = ({
           </Card>
         </Col>
       </Row>
-
       <Row style={RowStyle} wrap="true">
         <Col xs={24}>
           <h1
@@ -193,32 +184,50 @@ const RenderCitySearchResults = ({
           <br />
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card style={CardStyle}>
+          <Card
+            style={CardStyle}
+            onClick={() => handleOnCityClick(cityData.rec1)}
+          >
             <Statistic value={cityData.rec1} valueStyle={StatisticStyle} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card style={CardStyle}>
+          <Card
+            style={CardStyle}
+            onClick={() => handleOnCityClick(cityData.rec2)}
+          >
             <Statistic value={cityData.rec2} valueStyle={StatisticStyle} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card style={CardStyle}>
+          <Card
+            style={CardStyle}
+            onClick={() => handleOnCityClick(cityData.rec3)}
+          >
             <Statistic value={cityData.rec3} valueStyle={StatisticStyle} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card style={CardStyle}>
+          <Card
+            style={CardStyle}
+            onClick={() => handleOnCityClick(cityData.rec4)}
+          >
             <Statistic value={cityData.rec4} valueStyle={StatisticStyle} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card style={CardStyle}>
+          <Card
+            style={CardStyle}
+            onClick={() => handleOnCityClick(cityData.rec5)}
+          >
             <Statistic value={cityData.rec5} valueStyle={StatisticStyle} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card style={CardStyle}>
+          <Card
+            style={CardStyle}
+            onClick={() => handleOnCityClick(cityData.rec6)}
+          >
             <Statistic value={cityData.rec6} valueStyle={StatisticStyle} />
           </Card>
         </Col>
