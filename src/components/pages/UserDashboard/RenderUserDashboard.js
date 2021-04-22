@@ -68,13 +68,7 @@ const RenderUserDashboard = ({
                       <Button onClick={() => handleRemoveCity(item.id)}>
                         Remove City
                       </Button>
-                      <Button
-                        onClick={() =>
-                          handleOnCityClick({
-                            city: item.city,
-                          })
-                        }
-                      >
+                      <Button onClick={() => handleOnCityClick(item.city)}>
                         View City Data
                       </Button>
                     </Col>

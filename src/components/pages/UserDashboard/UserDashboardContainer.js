@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { fetchSavedCity, unpinCity } from '../../../state/actions';
+import {
+  fetchSavedCity,
+  unpinCity,
+  fetchCityData,
+} from '../../../state/actions';
 import { Spin, notification } from 'antd';
 import { Header, Footer } from '../../common/';
 import RenderUserDashboard from './RenderUserDashboard';
@@ -29,20 +33,21 @@ const UserDashboardContainer = ({
   const deleteNotification = () => {
     notification.open({
       message: 'City Removed',
-      description: `${cityAndState.city}, ${cityAndState.state} has been has been removed from Pinned Cities.`,
+      description: `${cityAndState} has been removed from Pinned Cities.`,
     });
   };
   const handleRemoveCity = id => {
     unpinCity(localStorage.getItem('token'), id);
     deleteNotification();
-    fetchSavedCity(localStorage.getItem('token'));
     window.location.reload();
   };
-  const handleOnCityClick = cityAndState => {
-    localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
-    setCityAndState(localStorage.getItem('cityAndState'));
-    push(`/citySearch/${cityAndState}`);
+
+  const handleOnCityClick = value => {
+    localStorage.setItem('cityAndState', value);
+    fetchCityData(value);
+    push(`/citySearch/${value}`);
   };
+
   return (
     <>
       <Header />
