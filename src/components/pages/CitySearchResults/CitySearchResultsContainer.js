@@ -58,7 +58,6 @@ const CitySearchResultsContainer = ({
     pinCity(localStorage.getItem('token'), cityInfo);
     savedNotification();
     console.log('pinned city', cityInfo);
-    // fetchSavedCity(localStorage.getItem('token'));
   };
   const handleOnCityClick = cityAndState => {
     localStorage.setItem('cityAndState', cityAndState);

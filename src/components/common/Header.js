@@ -3,6 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 import { SearchForm } from '../common';
 import cityspireLogo from '../../assets/imgs/logo.png';
+import { fetchSavedCity } from '../../state/actions';
 import {
   Row,
   Col,

@@ -2,7 +2,22 @@ import React from 'react';
 // import { MapboxGLMap } from '../../common';
 import { Statistic, Row, Col, Card, PageHeader, Button } from 'antd';
 import { PushpinFilled, EnvironmentFilled } from '@ant-design/icons';
-import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
+  cityAnchor: {
+    fontFamily: 'Barlow',
+    textAlign: 'center',
+    margin: '10px',
+    borderRadius: '20px',
+    cursor: 'pointer',
+    boxShadow:
+      '2px 2px 10px 3px ghostwhite, -2px -2px 10px 3px rgba(0,0,0,0.19)',
+    '&:hover': {
+      color: 'blue',
+      backgroundColor: 'lightgrey',
+    },
+  },
+}));
 const StatisticStyle = {
   fontFamily: 'Barlow',
   fontSize: '1.5rem',
@@ -31,6 +46,7 @@ const RenderCitySearchResults = ({
   handleSaveCity,
   handleOnCityClick,
 }) => {
+  const classes = useStyles();
   return (
     <div>
       <Row
@@ -185,7 +201,7 @@ const RenderCitySearchResults = ({
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card
-            style={CardStyle}
+            className={classes.cityAnchor}
             onClick={() => handleOnCityClick(cityData.rec1)}
           >
             <Statistic value={cityData.rec1} valueStyle={StatisticStyle} />
@@ -193,7 +209,7 @@ const RenderCitySearchResults = ({
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card
-            style={CardStyle}
+            className={classes.cityAnchor}
             onClick={() => handleOnCityClick(cityData.rec2)}
           >
             <Statistic value={cityData.rec2} valueStyle={StatisticStyle} />
@@ -201,7 +217,7 @@ const RenderCitySearchResults = ({
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card
-            style={CardStyle}
+            className={classes.cityAnchor}
             onClick={() => handleOnCityClick(cityData.rec3)}
           >
             <Statistic value={cityData.rec3} valueStyle={StatisticStyle} />
@@ -209,7 +225,7 @@ const RenderCitySearchResults = ({
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card
-            style={CardStyle}
+            className={classes.cityAnchor}
             onClick={() => handleOnCityClick(cityData.rec4)}
           >
             <Statistic value={cityData.rec4} valueStyle={StatisticStyle} />
@@ -217,7 +233,7 @@ const RenderCitySearchResults = ({
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card
-            style={CardStyle}
+            className={classes.cityAnchor}
             onClick={() => handleOnCityClick(cityData.rec5)}
           >
             <Statistic value={cityData.rec5} valueStyle={StatisticStyle} />
@@ -225,7 +241,7 @@ const RenderCitySearchResults = ({
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card
-            style={CardStyle}
+            className={classes.cityAnchor}
             onClick={() => handleOnCityClick(cityData.rec6)}
           >
             <Statistic value={cityData.rec6} valueStyle={StatisticStyle} />
