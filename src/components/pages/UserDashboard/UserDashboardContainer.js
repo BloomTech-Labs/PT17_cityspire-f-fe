@@ -19,9 +19,9 @@ const UserDashboardContainer = ({
   isFetching,
 }) => {
   const { push } = useHistory();
-  const [cityAndState, setCityAndState] = useState(
-    JSON.parse(localStorage.getItem('cityAndState'))
-  );
+  const cs = localStorage.getItem('cityAndState');
+  console.log('cs', cs);
+  const [cityAndState, setCityAndState] = useState(cs);
   useEffect(() => {
     fetchSavedCity(localStorage.getItem('token'));
     console.log('this is the fetch saved city', fetchSavedCity);
