@@ -56,6 +56,7 @@ const Header = () => {
 
   const handleOnClick = id => {
     push(`/profile/${id}/dashboard`);
+    window.location.reload();
   };
 
   // BEG: sdh
