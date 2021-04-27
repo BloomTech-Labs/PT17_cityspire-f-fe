@@ -40,7 +40,7 @@ function DangerousModal() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8002/dangerousCities')
+      .get('https://pt17-cityspire-f.herokuapp.com/dangerousCities')
       .then(res => {
         setDangerousCities(res.data);
       })

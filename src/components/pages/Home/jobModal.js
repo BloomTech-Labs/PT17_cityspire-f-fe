@@ -40,7 +40,7 @@ function JobModal() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8002/job')
+      .get('https://pt17-cityspire-f.herokuapp.com/job')
       .then(res => {
         setJobCities(res.data);
       })

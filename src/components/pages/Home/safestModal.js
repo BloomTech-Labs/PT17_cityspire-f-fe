@@ -40,7 +40,7 @@ function SafestModal() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8002/safestCities')
+      .get('https://pt17-cityspire-f.herokuapp.com/safestCities')
       .then(res => {
         setSafeCities(res.data);
       })
