@@ -40,7 +40,7 @@ function WeatherModal() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8002/weather')
+      .get('https://pt17-cityspire-f.herokuapp.com/weather')
       .then(res => {
         setWeatherCities(res.data);
       })

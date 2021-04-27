@@ -40,7 +40,7 @@ function RentalModal() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8002/rent')
+      .get('https://pt17-cityspire-f.herokuapp.com/rent')
       .then(res => {
         setRentalCities(res.data);
       })

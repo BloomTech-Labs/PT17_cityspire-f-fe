@@ -40,7 +40,7 @@ function SchoolModal() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8002/school')
+      .get('https://pt17-cityspire-f.herokuapp.com/school')
       .then(res => {
         setSchoolCities(res.data);
       })
